@@ -1,0 +1,288 @@
+/* FrankenTUI Terminal CSS - Core Styles & CSS Custom Properties */
+
+/* ============================================
+   Base Theme Variables (Cyberpunk Aurora Default)
+   ============================================ */
+:root {
+  /* Background colors */
+  --bg-deep: rgb(10, 14, 20);
+  --bg-base: rgb(26, 31, 41);
+  --bg-surface: rgb(30, 36, 48);
+  --bg-overlay: rgb(45, 55, 70);
+  --bg-highlight: rgb(61, 79, 95);
+
+  /* Foreground colors */
+  --fg-primary: rgb(179, 244, 255);
+  --fg-secondary: rgb(199, 213, 224);
+  --fg-muted: rgb(140, 160, 180);
+  --fg-disabled: rgb(61, 79, 95);
+
+  /* Accent colors */
+  --accent-primary: rgb(0, 170, 255);
+  --accent-secondary: rgb(255, 0, 255);
+  --accent-success: rgb(110, 255, 200);
+  --accent-warning: rgb(255, 229, 102);
+  --accent-error: rgb(255, 60, 110);
+  --accent-info: rgb(0, 255, 255);
+  --accent-link: rgb(102, 204, 255);
+
+  /* Syntax highlighting */
+  --syntax-keyword: rgb(255, 102, 255);
+  --syntax-string: rgb(110, 255, 200);
+  --syntax-number: rgb(255, 229, 102);
+  --syntax-comment: rgb(61, 79, 95);
+  --syntax-function: rgb(0, 170, 255);
+  --syntax-type: rgb(102, 255, 255);
+
+  /* Typography */
+  --font-mono: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --font-size-base: 16px;
+  --line-height: 1.6;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+
+  /* Glow effects */
+  --glow-primary: 0 0 10px var(--accent-primary), 0 0 20px rgba(0, 170, 255, 0.3);
+  --glow-text: 0 0 8px currentColor;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-mono);
+  background-color: var(--bg-base);
+  color: var(--fg-primary);
+  line-height: var(--line-height);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  color: var(--fg-primary);
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1rem; }
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--fg-secondary);
+}
+
+a {
+  color: var(--accent-link);
+  text-decoration: none;
+  transition: color var(--transition-fast), text-shadow var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-primary);
+  text-shadow: var(--glow-text);
+}
+
+code {
+  font-family: var(--font-mono);
+  background-color: var(--bg-surface);
+  padding: 0.125em 0.375em;
+  border-radius: var(--radius-sm);
+  font-size: 0.9em;
+}
+
+pre {
+  font-family: var(--font-mono);
+  background-color: var(--bg-deep);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  border: 1px solid var(--bg-overlay);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* ============================================
+   Text Styles (Terminal-like)
+   ============================================ */
+.text-bold { font-weight: 700; }
+.text-dim { opacity: 0.6; }
+.text-underline { text-decoration: underline; }
+.text-italic { font-style: italic; }
+
+.text-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Typewriter effect */
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--accent-primary);
+  animation: typing 2s steps(30, end), cursor-blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { border-color: var(--accent-primary); }
+  50% { border-color: transparent; }
+}
+
+/* ============================================
+   Accent Color Classes
+   ============================================ */
+.text-primary { color: var(--accent-primary); }
+.text-secondary { color: var(--accent-secondary); }
+.text-success { color: var(--accent-success); }
+.text-warning { color: var(--accent-warning); }
+.text-error { color: var(--accent-error); }
+.text-info { color: var(--accent-info); }
+.text-muted { color: var(--fg-muted); }
+
+.bg-deep { background-color: var(--bg-deep); }
+.bg-base { background-color: var(--bg-base); }
+.bg-surface { background-color: var(--bg-surface); }
+.bg-overlay { background-color: var(--bg-overlay); }
+
+/* ============================================
+   Layout Utilities
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+
+/* ============================================
+   Buttons
+   ============================================ */
+button, .btn {
+  font-family: var(--font-mono);
+  background-color: var(--bg-surface);
+  color: var(--fg-primary);
+  border: 1px solid var(--accent-primary);
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 0.875rem;
+}
+
+button:hover, .btn:hover {
+  background-color: var(--accent-primary);
+  color: var(--bg-deep);
+  box-shadow: var(--glow-primary);
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: var(--bg-deep);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-info);
+}
+
+/* ============================================
+   Scrollbar Styling
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-overlay);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* ============================================
+   Selection Styling
+   ============================================ */
+::selection {
+  background-color: var(--accent-primary);
+  color: var(--bg-deep);
+}
+
+/* ============================================
+   Reduced Motion Support
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .typewriter {
+    animation: none;
+    border-right: none;
+  }
+
+  .text-blink {
+    animation: none;
+  }
+}

@@ -1,0 +1,69 @@
+/* FrankenTUI Theme: Lumen Light */
+
+[data-theme="light"],
+.theme-light {
+  /* Background colors - Light palette */
+  --bg-deep: rgb(248, 249, 251);
+  --bg-base: rgb(238, 241, 245);
+  --bg-surface: rgb(230, 235, 241);
+  --bg-overlay: rgb(220, 227, 236);
+  --bg-highlight: rgb(208, 217, 228);
+
+  /* Foreground colors - Dark text for contrast */
+  --fg-primary: rgb(31, 41, 51);
+  --fg-secondary: rgb(62, 76, 89);
+  --fg-muted: rgb(123, 135, 148);
+  --fg-disabled: rgb(160, 172, 181);
+
+  /* Accent colors - Vibrant but accessible */
+  --accent-primary: rgb(37, 99, 235);
+  --accent-secondary: rgb(124, 58, 237);
+  --accent-success: rgb(15, 120, 55);
+  --accent-warning: rgb(180, 83, 9);
+  --accent-error: rgb(185, 28, 28);
+  --accent-info: rgb(2, 132, 199);
+  --accent-link: rgb(37, 99, 235);
+
+  /* Syntax highlighting */
+  --syntax-keyword: rgb(124, 58, 237);
+  --syntax-string: rgb(15, 120, 55);
+  --syntax-number: rgb(217, 119, 6);
+  --syntax-comment: rgb(154, 165, 177);
+  --syntax-function: rgb(37, 99, 235);
+  --syntax-type: rgb(14, 165, 233);
+
+  /* Glow effects (minimal for light theme) */
+  --glow-primary: 0 2px 8px rgba(37, 99, 235, 0.15);
+  --glow-text: none;
+
+  /* Override scrollbar for light theme */
+  color-scheme: light;
+}
+
+/* Light theme scrollbar */
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: var(--bg-overlay);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Light theme selection */
+[data-theme="light"] ::selection {
+  background-color: rgba(37, 99, 235, 0.2);
+  color: var(--fg-primary);
+}
+
+/* Reduce CRT effects on light theme */
+[data-theme="light"] .scanlines::before {
+  opacity: 0.02;
+}
+
+[data-theme="light"] .vignette::after {
+  opacity: 0.3;
+}

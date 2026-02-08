@@ -1,0 +1,38 @@
+/* FrankenTUI Theme: Darcula (JetBrains-inspired) */
+
+[data-theme="darcula"],
+.theme-darcula {
+  /* Background colors */
+  --bg-deep: rgb(43, 43, 43);
+  --bg-base: rgb(50, 50, 50);
+  --bg-surface: rgb(60, 63, 65);
+  --bg-overlay: rgb(75, 80, 82);
+  --bg-highlight: rgb(90, 96, 98);
+
+  /* Foreground colors */
+  --fg-primary: rgb(169, 183, 198);
+  --fg-secondary: rgb(146, 161, 177);
+  --fg-muted: rgb(118, 132, 147);
+  --fg-disabled: rgb(85, 90, 92);
+
+  /* Accent colors */
+  --accent-primary: rgb(104, 151, 187);
+  --accent-secondary: rgb(152, 118, 170);
+  --accent-success: rgb(130, 180, 110);
+  --accent-warning: rgb(255, 198, 109);
+  --accent-error: rgb(255, 115, 115);
+  --accent-info: rgb(179, 212, 252);
+  --accent-link: rgb(74, 136, 199);
+
+  /* Syntax highlighting */
+  --syntax-keyword: rgb(204, 120, 50);
+  --syntax-string: rgb(106, 135, 89);
+  --syntax-number: rgb(104, 151, 187);
+  --syntax-comment: rgb(128, 128, 128);
+  --syntax-function: rgb(255, 198, 109);
+  --syntax-type: rgb(152, 118, 170);
+
+  /* Glow effects (subtle for Darcula) */
+  --glow-primary: 0 0 8px rgba(104, 151, 187, 0.3);
+  --glow-text: 0 0 6px rgba(169, 183, 198, 0.2);
+}

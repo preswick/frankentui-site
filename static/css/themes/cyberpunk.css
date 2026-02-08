@@ -1,0 +1,38 @@
+/* FrankenTUI Theme: Cyberpunk Aurora (Default) */
+
+[data-theme="cyberpunk"],
+.theme-cyberpunk {
+  /* Background colors */
+  --bg-deep: rgb(10, 14, 20);
+  --bg-base: rgb(26, 31, 41);
+  --bg-surface: rgb(30, 36, 48);
+  --bg-overlay: rgb(45, 55, 70);
+  --bg-highlight: rgb(61, 79, 95);
+
+  /* Foreground colors */
+  --fg-primary: rgb(179, 244, 255);
+  --fg-secondary: rgb(199, 213, 224);
+  --fg-muted: rgb(140, 160, 180);
+  --fg-disabled: rgb(61, 79, 95);
+
+  /* Accent colors */
+  --accent-primary: rgb(0, 170, 255);
+  --accent-secondary: rgb(255, 0, 255);
+  --accent-success: rgb(110, 255, 200);
+  --accent-warning: rgb(255, 229, 102);
+  --accent-error: rgb(255, 60, 110);
+  --accent-info: rgb(0, 255, 255);
+  --accent-link: rgb(102, 204, 255);
+
+  /* Syntax highlighting */
+  --syntax-keyword: rgb(255, 102, 255);
+  --syntax-string: rgb(110, 255, 200);
+  --syntax-number: rgb(255, 229, 102);
+  --syntax-comment: rgb(61, 79, 95);
+  --syntax-function: rgb(0, 170, 255);
+  --syntax-type: rgb(102, 255, 255);
+
+  /* Glow effects (enhanced for cyberpunk) */
+  --glow-primary: 0 0 10px var(--accent-primary), 0 0 20px rgba(0, 170, 255, 0.4), 0 0 40px rgba(0, 170, 255, 0.2);
+  --glow-text: 0 0 8px currentColor, 0 0 16px rgba(0, 170, 255, 0.3);
+}

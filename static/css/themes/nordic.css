@@ -1,0 +1,38 @@
+/* FrankenTUI Theme: Nordic Frost (Nord-inspired) */
+
+[data-theme="nordic"],
+.theme-nordic {
+  /* Background colors - Nord Polar Night */
+  --bg-deep: rgb(46, 52, 64);
+  --bg-base: rgb(59, 66, 82);
+  --bg-surface: rgb(67, 76, 94);
+  --bg-overlay: rgb(76, 86, 106);
+  --bg-highlight: rgb(94, 129, 172);
+
+  /* Foreground colors - Nord Snow Storm */
+  --fg-primary: rgb(236, 239, 244);
+  --fg-secondary: rgb(216, 222, 233);
+  --fg-muted: rgb(163, 179, 194);
+  --fg-disabled: rgb(123, 135, 148);
+
+  /* Accent colors - Nord Frost & Aurora */
+  --accent-primary: rgb(136, 192, 208);    /* Nord Frost */
+  --accent-secondary: rgb(129, 161, 193);  /* Nord Frost */
+  --accent-success: rgb(163, 190, 140);    /* Nord Aurora Green */
+  --accent-warning: rgb(235, 203, 139);    /* Nord Aurora Yellow */
+  --accent-error: rgb(240, 150, 160);      /* Nord Aurora Red (brightened) */
+  --accent-info: rgb(143, 188, 187);       /* Nord Frost */
+  --accent-link: rgb(136, 192, 208);
+
+  /* Syntax highlighting - Nord Aurora */
+  --syntax-keyword: rgb(129, 161, 193);
+  --syntax-string: rgb(163, 190, 140);
+  --syntax-number: rgb(180, 142, 173);
+  --syntax-comment: rgb(97, 110, 136);
+  --syntax-function: rgb(136, 192, 208);
+  --syntax-type: rgb(143, 188, 187);
+
+  /* Glow effects (cool and muted for Nordic) */
+  --glow-primary: 0 0 10px rgba(136, 192, 208, 0.25);
+  --glow-text: 0 0 8px rgba(236, 239, 244, 0.15);
+}
