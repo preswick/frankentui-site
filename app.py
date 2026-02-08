@@ -181,18 +181,13 @@ EFFECTS = ['matrix', 'plasma', 'fire', 'starfield']
 
 def effect_controls():
     return Div(
-        Span("Effect:", cls="text-muted text-sm mb-2 block text-center sm:hidden"),
-        Span("Effect: ", cls="text-muted text-sm mr-2 hidden sm:inline"),
-        Div(
-            *[Button(
-                effect.capitalize(),
-                onclick=f"effectManager.init('bg-canvas', '{effect}')",
-                cls="effect-btn flex-1 sm:flex-none",
-                id=f"btn-{effect}"
-            ) for effect in EFFECTS],
-            cls="grid grid-cols-2 gap-2 w-full sm:flex sm:flex-wrap sm:justify-center sm:gap-2 sm:w-auto"
-        ),
-        cls="flex flex-col sm:flex-row items-center gap-2 justify-center"
+        *[Button(
+            effect.capitalize(),
+            onclick=f"effectManager.init('bg-canvas', '{effect}')",
+            cls="effect-btn flex-1 sm:flex-none",
+            id=f"btn-{effect}"
+        ) for effect in EFFECTS],
+        cls="grid grid-cols-2 gap-2 w-full sm:flex sm:flex-wrap sm:justify-center sm:gap-2 sm:w-auto"
     )
 
 
@@ -232,7 +227,7 @@ def layout(*content, title=None, htmx=None, show_effects=True):
         return (Title(page_title), *content)
 
     canvas = Canvas(id="bg-canvas", cls="effect-canvas") if show_effects else None
-    init_script = Script("document.addEventListener('DOMContentLoaded', () => effectManager.init('bg-canvas', 'matrix'));") if show_effects else None
+    init_script = Script("document.addEventListener('DOMContentLoaded', () => effectManager.init('bg-canvas', 'plasma'));") if show_effects else None
 
     main = Main(
         *content,
@@ -269,16 +264,24 @@ def index(htmx=None):
     """Home page with visual effects and social links."""
 
     hero = Div(
-        H1("Robbie Preswick", cls="text-3xl md:text-4xl font-bold mb-4 glow-text-subtle"),
-        P("Builder of things.", cls="text-secondary text-lg mb-8"),
-        social_links(),
-        cls="text-center py-12"
+        effect_controls(),
+        cls="py-4 mb-4"
     )
 
-    effects_section = Div(
-        H2("Visual Effects", cls="text-xl font-semibold mb-4 text-center"),
-        effect_controls(),
-        cls="py-8 border-t border-overlay"
+    intro = Div(
+        H1("Robbie Preswick", cls="text-3xl md:text-4xl font-bold mb-2 glow-text-subtle"),
+        Div(
+            *[A(
+                Span(s['name']),
+                href=s['url'],
+                target="_blank",
+                rel="noopener noreferrer",
+                cls="text-muted text-sm hover:text-accent-primary transition-all"
+            ) for s in SOCIALS],
+            cls="flex gap-8 mb-4"
+        ),
+        P("Builder of things.", cls="text-secondary text-lg"),
+        cls="py-8"
     )
 
     # Recent posts
@@ -312,7 +315,7 @@ def index(htmx=None):
 
     return layout(
         hero,
-        effects_section,
+        intro,
         blog_section,
         title="Home",
         htmx=htmx
